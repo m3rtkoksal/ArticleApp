@@ -29,15 +29,16 @@ struct ArticleListElementView: View {
                             .font(.custom("SF-Pro", size: 11))
                             .fontWeight(.ultraLight)
                             .foregroundColor(.gray)
-                            .padding()
+                            .padding(.vertical,13)
+                            .padding(.horizontal,5)
                             .frame( maxWidth: .infinity, alignment: .trailing)
                     }
                     .lineSpacing(13)
                     VStack(alignment: .leading, spacing: 17) {
                         Text(articlePost.title)
-                            .lineLimit(2)
                             .font(.headline)
                             .font(.custom("SF-Pro", size: 17))
+                            .frame( maxWidth: 280, maxHeight: 60, alignment: .leading)
                         Text("\(articlePost.author_name)")
                             .fontWeight(.ultraLight)
                             .frame(alignment: .bottomLeading)
@@ -46,12 +47,14 @@ struct ArticleListElementView: View {
                             .font(.custom("SF-Pro", size: 11))
                     }
                 }
-                            .frame(minWidth: 130, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .leading)
+                .padding(.horizontal,20)
+//                            .frame(minWidth: 130, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity, alignment: .leading)
             }
             .background(Color(red: 229, green: 229, blue: 229))
             .frame(minWidth: 335, maxWidth: .infinity, minHeight: 128, maxHeight: .infinity, alignment: .leading)
             .edgesIgnoringSafeArea(.all)
             .cornerRadius(15)
+            .padding(.horizontal, 20)
         }
     }
 

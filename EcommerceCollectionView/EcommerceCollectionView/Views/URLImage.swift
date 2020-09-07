@@ -24,6 +24,8 @@ struct URLImage: View {
         
         if let uiImage = self.imageLoader.downloadedImage {
             return Image(uiImage: uiImage)
+                .resizable()
+                .renderingMode(.original)
         } else {
             return placeholder
         }

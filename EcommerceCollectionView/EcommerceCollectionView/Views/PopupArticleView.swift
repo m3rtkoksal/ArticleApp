@@ -23,9 +23,9 @@ struct PopupArticleView: View {
                         .frame( height: 168)
                         .foregroundColor(Color(#colorLiteral(red: 0.737254902, green: 0.8196078431, blue: 1, alpha: 1)))
                     URLImage(url: articlePost.newspaper_image)
-                        .frame(width: 100, height: 100)
+                        .frame(width: 150, height: 125)
                 }
-                HStack(spacing: UIScreen.main.bounds.size.width / 2) {
+                HStack(spacing: UIScreen.main.bounds.size.width / 1.8) {
                     Text(articlePost.newspaper)
                         .frame( alignment: .leading)
                         .opacity(0.5)
@@ -37,25 +37,30 @@ struct PopupArticleView: View {
                 Text(articlePost.title)
                     .frame(width: 300, height: 80, alignment: .leading)
                     .font(.custom("SF-Pro", size: 20))
+                    .padding(.horizontal, 24)
                 Text(articlePost.abstract)
                     .frame(width: 300, height: 80, alignment: .leading)
                     .font(.custom("SF-Pro", size: 13))
                     .lineSpacing(1)
-                HStack(spacing: UIScreen.main.bounds.size.width / 3){
+                    .lineLimit(4)
+                HStack(spacing: UIScreen.main.bounds.size.width / 2.9){
                     Button(action: {
-                        
+                        print("button tapped")
                     }) {
-                        URLImage(url: articlePost.author_image)
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 32, height: 32)
-                            .edgesIgnoringSafeArea(.leading)
-                            .cornerRadius(16)
-                        Text(articlePost.author_name)
-                            .font(.custom("SF-Pro", size: 11))
-                            
+                        HStack{
+                            URLImage(url: articlePost.author_image)
+                                .aspectRatio(1, contentMode: .fit)
+                                .frame(width: 32, height: 32)
+                                .edgesIgnoringSafeArea(.leading)
+                                .cornerRadius(16)
+                                
+                            Text(articlePost.author_name)
+                                .font(.custom("SF-Pro", size: 11))
+                            .lineLimit(2)
+                        }
                     }
                     
-                    Button("Oku->") {
+                    Button("Oku →") {
                         self.isModalShown.toggle()
                         self.isShown.toggle()
                     }
